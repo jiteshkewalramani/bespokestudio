@@ -1,6 +1,7 @@
 {
   "name": "bespokestudio",
   "version": "0.0.0",
+  "homepage": "https://jiteshkewalramani.github.io/bespokestudio/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
