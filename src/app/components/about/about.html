@@ -1,0 +1,80 @@
+<section id="about" class="about-section section">
+  <div class="container">
+    
+    <!-- Section Heading -->
+    <div class="section-header text-center">
+      <span class="section-subtitle">About Bespoke Spaces</span>
+      <h2 class="section-title">Crafting Practical Luxury</h2>
+      <div class="header-divider"></div>
+    </div>
+
+    <!-- Core Narrative Grid -->
+    <div class="about-grid">
+      <div class="about-text-content">
+        <h3 class="narrative-heading">Spaces designed for modern high-rise living</h3>
+        <p class="narrative-paragraph">
+          Bespoke Spaces is a boutique interior design studio based in Kharadi, Pune. We design luxury, high-performance homes for discerning apartment owners. From bare shells to turnkey master designs, we focus on spatial optimization, exquisite materials, and modular excellence.
+        </p>
+        <p class="narrative-paragraph">
+          Our active presence is highly visible across Pune's premium towers, including Shubh Nirvana in Viman Nagar, Godrej Boulevard and Majestique Towers in Kharadi. We handle all elements including false ceilings, civil works, custom storage paneling, modular kitchen assemblies, and final interior styling.
+        </p>
+        
+        <!-- Active Hubs Badges -->
+        <div class="active-hubs">
+          <span class="hub-badge">Godrej Boulevard, Kharadi</span>
+          <span class="hub-badge">Shubh Nirvana, Viman Nagar</span>
+          <span class="hub-badge">Majestique Towers, Pune</span>
+        </div>
+      </div>
+
+      <!-- Founder Profile Spotlight -->
+      <div class="founder-card glass-panel-accent">
+        <div class="founder-avatar-box">
+          <div class="avatar-placeholder">NT</div>
+        </div>
+        <div class="founder-details">
+          <h4 class="founder-name">Namrata Trivedi</h4>
+          <span class="founder-role">Founder & Principal Designer</span>
+          <p class="founder-quote">
+            "Interiors must be liveable, beautiful, and completely optimized for your storage needs. We turn empty high-rise apartments into sophisticated, functional homes that tell your unique story."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Execution Timeline -->
+    <div class="timeline-container">
+      <h3 class="timeline-header-title text-center">Our Design Journey</h3>
+      <p class="timeline-header-desc text-center">A comprehensive, stress-free turnkey experience from blueprint to handover.</p>
+      
+      <div class="timeline-interactive-box">
+        <!-- Navigation Buttons -->
+        <div class="timeline-tabs">
+          <button 
+            *ngFor="let step of processSteps; let idx = index" 
+            class="timeline-tab" 
+            [class.active]="activeStep() === idx"
+            (click)="setActiveStep(idx)"
+          >
+            {{ step.number }}
+          </button>
+        </div>
+
+        <!-- Active Step Details Card -->
+        <div class="timeline-card-wrapper">
+          <div *ngFor="let step of processSteps; let idx = index" 
+               class="timeline-content-card glass-panel"
+               [class.visible]="activeStep() === idx"
+          >
+            <div class="timeline-card-header">
+              <span class="timeline-card-num">{{ step.number }}</span>
+              <h4 class="timeline-card-title">{{ step.title }}</h4>
+            </div>
+            <p class="timeline-card-text">{{ step.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

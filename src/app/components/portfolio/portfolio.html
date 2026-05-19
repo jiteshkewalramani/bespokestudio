@@ -1,0 +1,95 @@
+<section id="portfolio" class="portfolio-section section">
+  <div class="container">
+    
+    <!-- Section Heading -->
+    <div class="section-header text-center">
+      <span class="section-subtitle">Our Gallery</span>
+      <h2 class="section-title">Selected Masterpieces</h2>
+      <div class="header-divider"></div>
+    </div>
+
+    <!-- Interactive Horizontal Filter Bar -->
+    <div class="portfolio-filters flex-center">
+      <button 
+        *ngFor="let cat of categories" 
+        class="filter-btn"
+        [class.active]="activeFilter() === cat.value"
+        (click)="setFilter(cat.value)"
+      >
+        {{ cat.label }}
+      </button>
+    </div>
+
+    <!-- Masonry-Style Portfolio Grid -->
+    <div class="portfolio-grid">
+      <div 
+        *ngFor="let item of filteredItems()" 
+        class="portfolio-card animate-fade-in"
+        (click)="openLightbox(item)"
+      >
+        <!-- Project Image Container -->
+        <div class="project-img-box">
+          <img [src]="item.image" [alt]="item.title" class="project-image" loading="lazy" />
+          <div class="project-overlay">
+            <span class="overlay-icon">🔍</span>
+            <span class="overlay-tag">View Details</span>
+          </div>
+        </div>
+        
+        <!-- Project Details Base Info -->
+        <div class="project-info">
+          <span class="project-loc">{{ item.location }}</span>
+          <h4 class="project-card-title">{{ item.title }}</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Luxury Lightbox Detail Modal Overlay -->
+    <div 
+      class="lightbox-overlay" 
+      [class.active]="selectedItem() !== null"
+      *ngIf="selectedItem() as item"
+      (click)="closeLightbox()"
+    >
+      <div class="lightbox-content glass-panel" (click)="$event.stopPropagation()">
+        <!-- Close Button -->
+        <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
+        
+        <div class="lightbox-grid">
+          <!-- Big Left Image -->
+          <div class="lightbox-media-box">
+            <img [src]="item.image" [alt]="item.title" class="lightbox-image" />
+          </div>
+          
+          <!-- Detailed Specifications Right Card -->
+          <div class="lightbox-details-card">
+            <span class="lightbox-tag">{{ item.location }}</span>
+            <h3 class="lightbox-title">{{ item.title }}</h3>
+            <div class="lightbox-divider"></div>
+            
+            <p class="lightbox-description">{{ item.details }}</p>
+            
+            <!-- Dynamic Materials Badges -->
+            <div class="materials-section">
+              <h5 class="materials-header">Key Curation Elements:</h5>
+              <div class="materials-list">
+                <span *ngFor="let mat of item.materials" class="material-badge">
+                  {{ mat }}
+                </span>
+              </div>
+            </div>
+            
+            <!-- Call to action within modal -->
+            <button 
+              class="btn-primary lightbox-cta-btn" 
+              (click)="closeLightbox(); scrollToSection('contact')"
+            >
+              Enquire About Similar Layout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

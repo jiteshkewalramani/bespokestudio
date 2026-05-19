@@ -1,0 +1,31 @@
+<section id="home" class="hero-section">
+  <!-- Soft ambient background overlay to ensure high readability -->
+  <div class="hero-bg-overlay"></div>
+  
+  <div class="hero-content container">
+    <div class="hero-card glass-panel-accent animate-fade-in">
+      <span class="hero-tag">Bespoke Spaces Pune</span>
+      
+      <h1 class="hero-title">
+        Elevating Modern <br class="desktop-only">
+        Apartments Into <br class="desktop-only">
+        <span class="highlight-text">Luxury Havens</span>
+      </h1>
+      
+      <p class="hero-description">
+        Crafting space-optimized, turnkey residential sanctuaries tailored to your lifestyle. We turn empty shells into premium, functional designer homes in Pune's finest towers.
+      </p>
+      
+      <div class="hero-actions">
+        <button (click)="scrollToSection('portfolio')" class="btn-primary">Explore Portfolio</button>
+        <button (click)="scrollToSection('contact')" class="btn-secondary">Book Consultation</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative Scroll Down Indicator -->
+  <div class="scroll-indicator" (click)="scrollToSection('about')">
+    <span class="scroll-text">Scroll to explore</span>
+    <span class="scroll-line"></span>
+  </div>
+</section>

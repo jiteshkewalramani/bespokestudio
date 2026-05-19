@@ -1,0 +1,218 @@
+<section id="contact" class="contact-section section">
+  <div class="container">
+    
+    <!-- Section Heading -->
+    <div class="section-header text-center">
+      <span class="section-subtitle">Get In Touch</span>
+      <h2 class="section-title">Schedule A Consultation</h2>
+      <div class="header-divider"></div>
+    </div>
+
+    <!-- Contact Grid Structure -->
+    <div class="contact-grid">
+      
+      <!-- Left Box: Studio Info -->
+      <div class="contact-info-panel">
+        <h3 class="info-title">Let's craft your space</h3>
+        <p class="info-desc">
+          Ready to turn your brick-and-mortar shell into a bespoke masterpiece? Book a free site measurement and consult. We operate extensively throughout Pune’s prime developments.
+        </p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div class="info-details">
+              <h5>Location Focus</h5>
+              <p>Kharadi & Viman Nagar, Pune, Maharashtra</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <span class="info-icon">✉️</span>
+            <div class="info-details">
+              <h5>Email Address</h5>
+              <p>design&#64;bespokespaces.in</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">💬</span>
+            <div class="info-details">
+              <h5>Instagram Direct</h5>
+              <p>DM us at <a href="https://www.instagram.com/bespokespaces_id/" target="_blank">&#64;bespokespaces_id</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram Badge CTA -->
+        <a href="https://www.instagram.com/bespokespaces_id/" target="_blank" class="instagram-banner glass-panel">
+          <span class="instagram-logo-icon">📸</span>
+          <div class="ig-banner-meta">
+            <h5>Follow our transformations</h5>
+            <p>Watch our before/after transitions on Instagram</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Right Box: Enquiry Form -->
+      <div class="contact-form-panel glass-panel-accent">
+        <form #enquiryForm="ngForm" (ngSubmit)="onSubmit(enquiryForm)" novalidate>
+          
+          <!-- Success Status Alert -->
+          <div class="alert alert-success animate-fade-in" *ngIf="submitSuccess()">
+            <strong>✨ Project Enquiry Logged!</strong> 
+            <p>Details have been submitted to your Google Sheets dataset. We will reach out within 24 hours.</p>
+          </div>
+
+          <!-- Error Alert -->
+          <div class="alert alert-error" *ngIf="errorMessage() as error">
+            <strong>⚠️ Notice:</strong> {{ error }}
+          </div>
+
+          <!-- Form Fields Grid -->
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                [(ngModel)]="name" 
+                #nameRef="ngModel"
+                [class.error]="nameRef.invalid && nameRef.touched"
+                placeholder="Namrata Trivedi" 
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                email
+                [(ngModel)]="email" 
+                #emailRef="ngModel"
+                [class.error]="emailRef.invalid && emailRef.touched"
+                placeholder="client&#64;example.com" 
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                required 
+                pattern="^[0-9]{10}$"
+                [(ngModel)]="phone" 
+                #phoneRef="ngModel"
+                [class.error]="phoneRef.invalid && phoneRef.touched"
+                placeholder="9876543210 (10 digits)" 
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="projectType">Project Requirements</label>
+              <select id="projectType" name="projectType" [(ngModel)]="projectType">
+                <option value="2BHK">2 BHK Turnkey</option>
+                <option value="3BHK">3 BHK Turnkey</option>
+                <option value="Villa">Independent Villa</option>
+                <option value="Carpentry">Bespoke modulars only</option>
+                <option value="Civil">Civil Renovations only</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="location">Apartment Site Tower</label>
+              <select id="location" name="location" [(ngModel)]="location">
+                <option value="Godrej Boulevard">Godrej Boulevard, Kharadi</option>
+                <option value="Shubh Nirvana">Shubh Nirvana, Viman Nagar</option>
+                <option value="Majestique Towers">Majestique Towers, Kharadi</option>
+                <option value="Other Pune">Other Prime Pune Tower</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="message">Design Details / Storage Brief</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="4" 
+                [(ngModel)]="message" 
+                placeholder="Share your timeline, wardrobe requirements, layout briefs..."
+              ></textarea>
+            </div>
+          </div>
+
+          <button 
+            type="submit" 
+            class="btn-primary form-submit-btn" 
+            [disabled]="enquiryForm.invalid || isSubmitting()"
+          >
+            <span *ngIf="!isSubmitting()">Send Project Brief</span>
+            <span *ngIf="isSubmitting()">Submitting...</span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Collapsible Developer Integration / Local Sheets Mock Dashboard -->
+    <div class="dashboard-section glass-panel">
+      <div class="dashboard-header" (click)="toggleLogs()">
+        <div class="dashboard-title">
+          <span>🛠️</span>
+          <h4>Google Sheets Integration Dashboard</h4>
+        </div>
+        <span class="arrow-toggle" [class.rotated]="showLogs()">▼</span>
+      </div>
+
+      <div class="dashboard-body" *ngIf="showLogs()">
+        <p class="admin-notice">
+          <strong>How to link this form to your Google Sheet:</strong> Paste our Google Apps Script code into your Google Sheet's Extension script editor, deploy as a Web App, and copy the Web App URL below to begin logging data live!
+        </p>
+
+        <!-- Web App Endpoint URL Input -->
+        <div class="endpoint-config">
+          <input 
+            type="text" 
+            [(ngModel)]="sheetUrlInput" 
+            placeholder="Paste your Apps Script Web App URL here"
+            class="url-input" 
+          />
+          <button (click)="saveCustomUrl()" class="btn-primary save-url-btn">Link Live Sheet</button>
+        </div>
+
+        <div class="logs-header">
+          <h5>Local Submission Log History ({{ enquiries().length }})</h5>
+          <button *ngIf="enquiries().length > 0" (click)="clearLogs()" class="clear-btn">Clear Logs</button>
+        </div>
+
+        <!-- Render logged payload items -->
+        <div class="logs-grid" *ngIf="enquiries().length > 0; else noLogs">
+          <div *ngFor="let eq of enquiries()" class="log-card">
+            <div class="log-meta">
+              <span class="log-time">{{ eq.timestamp | date:'short' }}</span>
+              <span class="log-badge">{{ eq.projectType }}</span>
+            </div>
+            <p><strong>Name:</strong> {{ eq.name }}</p>
+            <p><strong>Phone:</strong> {{ eq.phone }} | <strong>Email:</strong> {{ eq.email }}</p>
+            <p><strong>Tower:</strong> {{ eq.location }}</p>
+            <p><strong>Brief:</strong> {{ eq.message }}</p>
+          </div>
+        </div>
+        
+        <ng-template #noLogs>
+          <div class="no-logs-view text-center">
+            <p>No local submission entries yet. Submit the form above to witness the payload layout.</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+  </div>
+</section>

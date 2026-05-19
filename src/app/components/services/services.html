@@ -1,0 +1,52 @@
+<section id="services" class="services-section section">
+  <div class="container">
+    
+    <!-- Section Heading -->
+    <div class="section-header text-center">
+      <span class="section-subtitle">Our Expertise</span>
+      <h2 class="section-title">Tailored Interior Solutions</h2>
+      <div class="header-divider"></div>
+    </div>
+
+    <!-- Services Grid Layout -->
+    <div class="services-grid">
+      <div 
+        *ngFor="let service of services; let idx = index" 
+        class="service-card glass-panel animate-fade-in"
+        [class.animate-delay-1]="idx === 0"
+        [class.animate-delay-2]="idx === 1"
+        [class.animate-delay-3]="idx === 2"
+      >
+        <!-- Icon & Tag -->
+        <div class="service-icon-box">
+          <span class="service-icon">{{ service.icon }}</span>
+        </div>
+        
+        <!-- Header details -->
+        <div class="service-meta">
+          <span class="service-sub">{{ service.subtitle }}</span>
+          <h3 class="service-card-title">{{ service.title }}</h3>
+        </div>
+        
+        <!-- Main copy -->
+        <p class="service-description">{{ service.description }}</p>
+        
+        <!-- Checklist specs -->
+        <ul class="service-features">
+          <li *ngFor="let feature of service.features" class="feature-item">
+            <span class="bullet">✓</span>
+            <span class="feature-text">{{ feature }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Dynamic CTA panel -->
+    <div class="services-cta glass-panel-accent text-center animate-fade-in animate-delay-2">
+      <h3 class="cta-heading">Ready to transform your home shell?</h3>
+      <p class="cta-subtext">Book a site walkthrough with Namrata and the team to discuss your project layout.</p>
+      <a href="#contact" class="btn-primary">Request Free Consultation</a>
+    </div>
+
+  </div>
+</section>

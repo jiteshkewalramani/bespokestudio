@@ -1,0 +1,154 @@
+/* Footer styling styles */
+
+.footer-panel {
+  background: var(--color-dark);
+  color: var(--color-text-light);
+  padding: 6rem 2rem 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1fr;
+  gap: 4rem;
+  padding-bottom: 5rem;
+}
+
+/* Left Brand Box */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-gray-mid);
+  max-width: 320px;
+}
+
+/* Common Titles */
+.footer-title {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-primary);
+  margin-bottom: 1.8rem;
+}
+
+/* Links lists */
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-links a {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-gray-mid);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-quick);
+}
+
+.footer-links a:hover {
+  color: var(--color-white);
+  padding-left: 4px;
+}
+
+/* Towers details box */
+.towers-desc {
+  font-size: 0.9rem;
+  color: var(--color-gray-mid);
+  margin-bottom: 1rem;
+}
+
+.footer-towers-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-towers-list li {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--color-gray-mid);
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem 0;
+  font-size: 0.8rem;
+  color: var(--color-gray-mid);
+}
+
+.footer-bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-credits {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.dot {
+  color: var(--color-primary);
+}
+
+.footer-social-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-quick);
+}
+
+.footer-social-link:hover {
+  color: var(--color-white);
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-panel {
+    padding: 4rem 1.5rem 0 1.5rem;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+  }
+  
+  .footer-tagline {
+    max-width: 100%;
+  }
+  
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
