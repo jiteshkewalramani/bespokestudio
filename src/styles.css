@@ -2,21 +2,27 @@
 
 :root {
   /* Color Palette */
-  --color-primary: #8B5E52;      /* Rich Rose Terracotta */
-  --color-primary-hover: #754e43;
-  --color-secondary: #4E5E50;    /* Organic Sage Green */
-  --color-secondary-hover: #3e4a3f;
-  --color-dark: #2C2523;         /* Deep Bronze Charcoal */
-  --color-bg-light: #FAF8F5;     /* Warm Ivory/Cream background */
+  --color-primary: #D16A38;      /* Burnt Terracotta from Logo */
+  --color-primary-hover: #B75525;
+  --color-secondary: #4A545C;    /* Elegant Slate Charcoal from Logo */
+  --color-secondary-hover: #373F45;
+  --color-dark: #22252A;         /* Rich Deep Charcoal */
+  --color-bg-light: #FAF9F5;     /* Classy warm off-white */
   --color-white: #ffffff;
-  --color-gray-light: #f1eeea;
-  --color-gray-mid: #a09794;
+  --color-gray-light: #f3f1ed;
+  --color-gray-mid: #a39b97;
   
   /* Text Colors */
-  --color-text-dark: #2C2523;
-  --color-text-light: #FAF8F5;
-  --color-text-muted: #706764;
-  --color-text-accent: #8B5E52;
+  --color-text-dark: #22252A;
+  --color-text-light: #FAF9F5;
+  --color-text-muted: #6C727A;
+  --color-text-accent: #D16A38;
+
+  /* Custom logo-wheel spectrum gradient */
+  --color-wheel-gradient: linear-gradient(90deg, 
+    #ED1C24, #F05A28, #F7931E, #FDF200, #8CC63F, #00A651, 
+    #00AEEF, #0054A6, #2E3192, #662D91, #9E27B0, #EC008C
+  );
 
   /* Typography */
   --font-serif: 'Cinzel', serif;
@@ -24,12 +30,12 @@
 
   /* Glassmorphism & Visual Effects */
   --glass-bg: rgba(255, 255, 255, 0.75);
-  --glass-bg-dark: rgba(44, 37, 35, 0.85);
-  --glass-border: rgba(139, 94, 82, 0.12);
+  --glass-bg-dark: rgba(34, 37, 42, 0.85);
+  --glass-border: rgba(209, 106, 56, 0.12);
   --glass-border-light: rgba(255, 255, 255, 0.5);
-  --glass-shadow: 0 8px 32px 0 rgba(44, 37, 35, 0.05);
-  --card-shadow: 0 12px 40px rgba(139, 94, 82, 0.06);
-  --glow-shadow: 0 0 20px rgba(139, 94, 82, 0.15);
+  --glass-shadow: 0 8px 32px 0 rgba(34, 37, 42, 0.05);
+  --card-shadow: 0 12px 40px rgba(209, 106, 56, 0.06);
+  --glow-shadow: 0 0 20px rgba(209, 106, 56, 0.15);
 
   /* Transitions */
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -154,7 +160,7 @@ p {
   letter-spacing: 0.15em;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(139, 94, 82, 0.2);
+  box-shadow: 0 4px 15px rgba(209, 106, 56, 0.2);
   transition: var(--transition-smooth);
   position: relative;
   overflow: hidden;
@@ -177,7 +183,7 @@ p {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 94, 82, 0.3);
+  box-shadow: 0 6px 20px rgba(209, 106, 56, 0.3);
 }
 
 .btn-primary:hover::before {
@@ -204,7 +210,7 @@ p {
 }
 
 .btn-secondary:hover {
-  background: rgba(139, 94, 82, 0.05);
+  background: rgba(209, 106, 56, 0.05);
   transform: translateY(-2px);
 }
 

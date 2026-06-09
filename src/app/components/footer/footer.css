@@ -18,12 +18,23 @@
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  letter-spacing: 0.12em;
-  color: var(--color-white);
   margin-bottom: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.footer-logo-img {
+  height: 65px;
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: var(--color-white);
+  padding: 2px;
+  transition: var(--transition-smooth);
+}
+
+.footer-logo-img:hover {
+  transform: scale(1.04);
 }
 
 .footer-tagline {
