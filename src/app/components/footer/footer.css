@@ -18,6 +18,7 @@
 .footer-logo {
   display: flex;
   align-items: center;
+  gap: 0.9rem;
   margin-bottom: 1.5rem;
   cursor: pointer;
   user-select: none;
@@ -31,10 +32,34 @@
   background: var(--color-white);
   padding: 2px;
   transition: var(--transition-smooth);
+  flex-shrink: 0;
 }
 
 .footer-logo-img:hover {
   transform: scale(1.04);
+}
+
+.footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-family: var(--font-serif);
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.footer-logo-text .logo-bold {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.footer-logo-text .logo-light {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--color-gray-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
 .footer-tagline {
